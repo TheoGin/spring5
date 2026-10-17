@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 无法自动装配。存在多个 'OrderDao' 类型的 Bean。Bean: orderDao,orderDao。属性: 'orderDao'  -->
+    <!-- <bean id="orderDao" class="com.study.spring.dao.OrderDao" />-->
+    <!--<bean id="orderDao" class="com.study.spring.dao.OrderDao" />
+    <bean autowire="byType" id="orderService" class="com.study.spring.service.OrderService" />
+    <bean autowire="byType" id="orderAction" class="com.study.spring.controller.OrderAction" />-->
+
+    <bean id="orderDao02" class="com.study.spring.dao.OrderDao" />
+    <bean autowire="byName" id="orderService" class="com.study.spring.service.OrderService" />
+    <bean autowire="byName" id="orderAction" class="com.study.spring.controller.OrderAction" />
+</beans>
