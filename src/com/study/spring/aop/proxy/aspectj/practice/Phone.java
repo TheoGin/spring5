@@ -7,6 +7,7 @@ public class Phone implements UsbInterface {
     @Override
     public String work(String deviceName) {
         String status = "Using " + deviceName + " to work";
+        // int divide = 8 / 0;
         System.out.println("Phone 类的方法内部：" + status);
         return status;
     }
