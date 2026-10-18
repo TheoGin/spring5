@@ -10,7 +10,7 @@ import java.util.List;
 
 @Aspect
 @Component
-public class SmartAnimalAspect2 {
+public class SmartAnimalAspect2_Around {
 
     @Around(value = "execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))")
     public void doAround(ProceedingJoinPoint joinPoint) {
