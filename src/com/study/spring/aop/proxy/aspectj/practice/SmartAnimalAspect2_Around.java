@@ -3,13 +3,15 @@ package com.study.spring.aop.proxy.aspectj.practice;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
 
-// @Aspect
-// @Component
+@Aspect
+@Component
+@Order(value = 2)
 public class SmartAnimalAspect2_Around {
 
     @Around(value = "execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))")

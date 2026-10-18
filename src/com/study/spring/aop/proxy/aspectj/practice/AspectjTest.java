@@ -40,4 +40,11 @@ public class AspectjTest {
         UsbInterface phone = ioc.getBean("phone", UsbInterface.class);
         phone.work("手机");
     }
+
+    @Test
+    public void testOrderAspectj3() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans_aspectj.xml");
+        UsbInterface phone = ioc.getBean("phone", UsbInterface.class);
+        phone.work("手机");
+    }
 }

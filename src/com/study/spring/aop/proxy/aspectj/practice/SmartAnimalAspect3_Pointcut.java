@@ -3,12 +3,14 @@ package com.study.spring.aop.proxy.aspectj.practice;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
 @Component
+@Order(value = 1)
 public class SmartAnimalAspect3_Pointcut {
     @Pointcut("execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))")
     public void myPointcut() {
