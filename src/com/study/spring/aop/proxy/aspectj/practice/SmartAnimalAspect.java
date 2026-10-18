@@ -29,10 +29,17 @@ public class SmartAnimalAspect {
         System.out.println("切面类的，执行后 showExceptionLog 方法执行 " + signature.getName());
     }
 
-    @After("execution(public String com.study.spring.aop.proxy.aspectj.practice.*.work(String))")
+    @After("execution(public String com.study.spring.aop.proxy.aspectj.practice.*.work(String)) || execution(public void Car.run())")
     public void showFinallyEndLog(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         System.out.println("切面类的，执行后 showFinallyEndLog 方法执行 " + signature.getName());
+
+        System.out.println("signature.getDeclaringTypeName(): " + signature.getDeclaringTypeName()); // 输出类名
+        System.out.println("signature.getDeclaringType(): " + signature.getDeclaringType().getSimpleName()); // 输出简单类名
+        // System.out.println("signature.getDeclaringType(): " + signature.getDeclaringType()); // 输出类类型
+        System.out.println("signature.getModifiers(): " + signature.getModifiers()); // 输出修饰符
+        System.out.println("joinPoint.getTarget(): " + joinPoint.getTarget());
+        System.out.println("joinPoint.getThis(): " + joinPoint.getThis());
     }
 
 }
