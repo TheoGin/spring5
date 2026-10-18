@@ -8,7 +8,7 @@ public class Phone implements UsbInterface {
     public String work(String deviceName) {
         String status = "Using " + deviceName + " to work";
         // int divide = 8 / 0;
-        System.out.println("Phone 类的方法内部：" + status);
+        System.out.println("Phone 类的 work方法内部：" + status);
         return status;
     }
 }

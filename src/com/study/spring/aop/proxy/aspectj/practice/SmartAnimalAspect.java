@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Aspect
-@Component
+// @Aspect
+// @Component
 public class SmartAnimalAspect {
     @Before("execution(public String Phone.work(String)) || execution(public void com.study.spring.aop.proxy.aspectj.practice.Car.run())")
     public void showBeginLog(JoinPoint joinPoint) {

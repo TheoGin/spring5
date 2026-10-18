@@ -1,6 +1,7 @@
 package com.study.spring.aop.proxy.aspectj.practice;
 
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AspectjTest {
@@ -24,5 +25,12 @@ public class AspectjTest {
         Car car = (Car)ioc.getBean("car");
         car.run();
         System.out.println(car.getClass()); // class com.study.spring.aop.proxy.aspectj.practice.Car$$EnhancerBySpringCGLIB$$489de324
+    }
+
+    @Test
+    public void testAroundAspectj() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("beans_aspectj.xml");
+        UsbInterface phone = ioc.getBean("phone", UsbInterface.class);
+        phone.work("手机");
     }
 }
