@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
-@Aspect
-@Component
+// @Aspect
+// @Component
 public class SmartAnimalAspect2_Around {
 
     @Around(value = "execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))")
