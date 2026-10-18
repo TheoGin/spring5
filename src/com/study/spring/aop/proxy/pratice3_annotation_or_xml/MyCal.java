@@ -2,6 +2,7 @@ package com.study.spring.aop.proxy.pratice3_annotation_or_xml;
 
 import org.springframework.stereotype.Component;
 
+// @Component
 public class MyCal implements Cal {
     @Override
     public int cal1(int n) {
