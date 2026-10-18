@@ -17,16 +17,16 @@ public class SmartAnimalAspect {
     }
 
     // @AfterReturning("execution(public String Phone.work(String)) || execution(public String Camera.work(String))")
-    @AfterReturning("execution(public String UsbInterface.work(String))") // 上下等价
-    public void showSuccessEndLog(JoinPoint joinPoint) {
+    @AfterReturning(value = "execution(public String UsbInterface.work(String))", returning = "result") // 上下等价
+    public void showSuccessEndLog(JoinPoint joinPoint, String result) {
         Signature signature = joinPoint.getSignature();
-        System.out.println("切面类的，执行后 showSuccessEndLog 方法执行 " + signature.getName());
+        System.out.println("切面类的，执行后 showSuccessEndLog 方法执行 " + signature.getName() + " 参数是 " + Arrays.asList(joinPoint.getArgs()) + " 返回值是 " + result);
     }
 
-    @AfterThrowing("execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))")
-    public void showExceptionLog(JoinPoint joinPoint) {
+    @AfterThrowing(value = "execution(public String com.study.spring.aop.proxy.aspectj.practice.Phone.work(String))", throwing = "throwing")
+    public void showExceptionLog(JoinPoint joinPoint, Throwable throwing) {
         Signature signature = joinPoint.getSignature();
-        System.out.println("切面类的，执行后 showExceptionLog 方法执行 " + signature.getName());
+        System.out.println("切面类的，执行后 showExceptionLog 方法执行 " + signature.getName() + " 异常是 " + throwing);
     }
 
     @After("execution(public String com.study.spring.aop.proxy.aspectj.practice.*.work(String)) || execution(public void Car.run())")
