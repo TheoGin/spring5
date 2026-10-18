@@ -1,4 +1,4 @@
-package com.study.spring.aop.proxy.pratice2.pratice;
+package com.study.spring.aop.proxy.pratice2;
 
 public class SmartAnimalImpl implements SmartAnimal {
     @Override

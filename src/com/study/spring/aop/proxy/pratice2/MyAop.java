@@ -1,4 +1,4 @@
-package com.study.spring.aop.proxy.pratice2.pratice;
+package com.study.spring.aop.proxy.pratice2;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;

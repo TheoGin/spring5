@@ -1,4 +1,4 @@
-package com.study.spring.aop.proxy.pratice2.pratice;
+package com.study.spring.aop.proxy.pratice2;
 
 public interface SmartAnimal {
     public Double getSum(Double num1, Double num2);
