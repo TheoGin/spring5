@@ -27,4 +27,23 @@ public class GoodsDao {
         String sql = "update goods_amount set goods_num = goods_num - ? where goods_id = ?";
         jdbcTemplate.update(sql, num, goodsId);
     }
+
+    public double queryPriceById2(int id) {
+        String sql = "select price from goods where goods_id = ?";
+        // double price = jdbcTemplate.queryForObject(sql, new Object[]{goodsId}, Double.class);
+        double price = jdbcTemplate.queryForObject(sql, Double.class, id);
+        // System.out.println("商品价格为：" + price);
+        return price;
+    }
+
+    public void updateBalance2(int userId, double money) {
+        // String sql = "updatex user_account set money = money - ? where user_id = ?";
+        String sql = "update user_account set money = money - ? where user_id = ?";
+        jdbcTemplate.update(sql, money, userId);
+    }
+
+    public void updateGoodsNum2(int goodsId, int num) {
+        String sql = "update goods_amount set goods_num = goods_num - ? where goods_id = ?";
+        jdbcTemplate.update(sql, num, goodsId);
+    }
 }
