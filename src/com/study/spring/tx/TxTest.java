@@ -54,4 +54,12 @@ public class TxTest {
         goodsService.buyGoodsByTxISOLATION(1, 1, 1);
         System.out.println("ok");
     }
+
+    @Test
+    public void buyGoodsByTxTimeoutTest() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("tx_ioc.xml");
+        GoodsService goodsService = ioc.getBean(GoodsService.class);
+        goodsService.buyGoodsByTxTimeout(1, 1, 1);
+        System.out.println("ok");
+    }
 }

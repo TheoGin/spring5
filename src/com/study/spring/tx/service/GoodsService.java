@@ -36,4 +36,20 @@ public class GoodsService {
         price = goodsDao.queryPriceById(goodsId);
         System.out.println("第二次读取的价格= " + price);
     }
+
+    @Transactional(timeout = 2) // The timeout for this transaction (in seconds).
+    public void buyGoodsByTxTimeout(int userId, int goodsId, int num) {
+        double price = goodsDao.queryPriceById(goodsId);
+        goodsDao.updateBalance(userId, price * num);
+
+        System.out.println("====超时start====");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("====超时end====");
+
+        goodsDao.updateGoodsNum(goodsId, num);
+    }
 }
