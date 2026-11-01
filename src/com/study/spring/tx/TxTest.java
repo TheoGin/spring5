@@ -47,4 +47,11 @@ public class TxTest {
         multiplyTxService.multiplyTx();
     }
 
+    @Test
+    public void buyGoodsByTxISOLATIONTest() {
+        ApplicationContext ioc = new ClassPathXmlApplicationContext("tx_ioc.xml");
+        GoodsService goodsService = ioc.getBean(GoodsService.class);
+        goodsService.buyGoodsByTxISOLATION(1, 1, 1);
+        System.out.println("ok");
+    }
 }
