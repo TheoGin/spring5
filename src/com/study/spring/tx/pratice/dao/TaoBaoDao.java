@@ -26,7 +26,7 @@ public class TaoBaoDao {
     }
 
     public double queryProductRate(int productId) {
-        String sql = "select rate from taobao where product_id = ?";
+        String sql = "select rate from taobao where id = ?";
         Double rate = jdbcTemplate.queryForObject(sql, Double.class, productId);
         return rate;
     }
@@ -39,5 +39,10 @@ public class TaoBaoDao {
     public void updateProductStock(int productId, int stockNum) {
         String sql = "update product set stock = stock - ? where id = ?";
         jdbcTemplate.update(sql, stockNum, productId);
+    }
+
+    public void updateTaobaoBalance(int taoBaoId, double balance) {
+        String sql = "update taoBao set balance = balance + ? where id = ?";
+        jdbcTemplate.update(sql, balance, taoBaoId);
     }
 }

@@ -16,12 +16,15 @@ public class TaoBaoService {
         int sellerId = taoBaoDao.querySellerIdByProductId(productId);
         double rate = taoBaoDao.queryProductRate(productId);
 
-        taoBaoDao.transferOut(userId, price * num);
+        double money = price * num;
+        taoBaoDao.transferOut(userId, money);
 
         taoBaoDao.updateProductStock(productId, num);
 
-        taoBaoDao.transferIn(sellerId, price * num * (1 - rate));
+        double taobaoMoney = money * rate;
+        taoBaoDao.transferIn(sellerId, money - taobaoMoney);
 
+        taoBaoDao.updateTaobaoBalance(1, taobaoMoney);
     }
 
     /* private void transfer(int fromUserId, int toUserId, double money, double rate) {
